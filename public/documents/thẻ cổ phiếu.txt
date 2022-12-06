@@ -1,0 +1,21 @@
+<div class="">
+    <div class="stock-container" *ngFor="let stock of stocks; index as i">
+        <div>
+            <div class="name">{{stock.name + ' (' + stock.code + ')'}}</div>
+            <div class="change">{{stock.exchange}}</div>
+            <!-- <divex class="price" [class.positive]="stock.price > stock.previousPrice" [class.negative]="stock.price <= stock.previousPrice">$ {{stock.price}}</div> -->
+            <p [class]="stock.isPositionChange() ? 'positive' : 'negative'">${{ stock.price }}</p>
+            <p>(Giá trước ${{ stock.previousPrice }})</p>
+            <!-- <p [ngClass]="stockClasses">Giá bây giờ: ${{ stock.price }}</p>
+            <p>Giá trước: ${{ stock.previousPrice }}</p> -->
+            <!-- <p>{{ stock.exchange }}</p> -->
+        </div>
+        <!-- <button (click)="removeStock(stock.name)">Delete stock</button> -->
+        <button (click)="toggleFavorite($event, i)" *ngIf="stocks[i].favorite">
+      Delete Favorite
+    </button>
+        <button (click)="toggleFavorite($event, i)" *ngIf="!stocks[i].favorite">
+      Add to Favorite
+    </button>
+    </div>
+</div>
