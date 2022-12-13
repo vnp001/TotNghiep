@@ -246,7 +246,6 @@ class TimekeepingCotroller extends Controller
                                 ->get();
         $getHeSoPhuCap=nhanvien::where('Id_NhanVien','=',$request->nhanvien)
                                 ->with('chucvu')
-                                ->first()
                                 ->get();
         $totalLaudaryDiscipline=round($totalLaudary[0]->Thuong - $totalDiscipline[0]->Phat);  
 

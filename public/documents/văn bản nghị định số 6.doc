@@ -1,0 +1,39 @@
+
+            <!DOCTYPE html>
+            <html lang="en">
+            <head>
+            <title>Bootstrap Example</title>
+            <meta charset="utf-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1">
+            </head>
+            <body>  
+                <div id="tieude" >
+                    <div class="" style="margin-top: 0px;">
+                            <div> <h4>BỘ GIÁO VÀ ĐÀO TẠO</h4></div>
+                            <div id="tieudetruong"><h4>TRƯỜNG ĐẠI HỌC QUY NHƠN</h4></div>     
+                            <div style=" margin-top: 15px;"><span>Số:  {{$docdetail->soVB}}/TB-DHQN</span></div>          
+                    </div>
+                    <div class="" style=" margin-left: 280px; margin-top: 0px;">
+                            <div><h4>CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM</h4></div>
+                            <div id="tieudedoclap"><h4>Độc Lập - Tự Do - Hạnh Phúc</h4></div>
+                            <div><h4>Bình Định, Ngày 09 tháng 10 năm 2021</h4></div>  
+                    </div>
+                </div>
+                <div id="tenvanban" style=" text-align: center;height: auto;width: 600px;margin-left: 100px;">
+                    <h3>van ban test</h3>
+                </div>
+                <div class="container" style=" margin-top: 60px; height: auto;width: 820px;text-align: left;">
+                        <p>
+                        With Vs PHP Word class it is very simple and straight forward to generate DOCX documents. You just include VsWord library and create a HTML parser object. Then pass to the parser whatever HTML code you want to added to the document and save it a DOCX file.
+
+            You can also use another way by using nodes where you get more control in styling and manipulating your text. You also can create add page breaks or add templates and styles. You can even use WYSIWYG HTML editotr like TinyMCE and save the result as DOCX file.
+                        </p>
+                </div>
+                <div style="margin-left:500px;margin-top:50px">
+                    <h4 style="margin-left:10px;">Người kí</h4>
+                    <h4 style="margin-left:20px;">nghĩa</h4>
+                    <h5 style="">Lê trọng nghĩa</h5>
+                </div>
+            </body>
+            </html>
+            

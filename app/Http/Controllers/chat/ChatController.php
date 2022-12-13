@@ -171,7 +171,7 @@ class ChatController extends Controller
         $employees=nhanvien::where('Id_PhongBan','=',$info[0]->Id_PhongBan)
                             ->orwhere('Id_PhongBan','=',9)
                             ->get();
-        return view('pages.chat.user.index_User',compact('employees','Departments','contentchats','chatBoxs'));
+        return view('pages.chat.user.index_User',compact('employees','Departments','chatBoxs'));
     }
     public function createchat_user(request $reuqest)
     {

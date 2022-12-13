@@ -43,108 +43,108 @@
             @endif
         </div>
     </div>
-    <div class="col-lg-4  ml-5 col-sm-6 shadow-lg" style="">
-        <form action="{{ route('addcontaineruser')}}" method="post" enctype="multipart/form-data">
+    <div class="row">
+        <div class="col-lg-4  ml-5 col-sm-6 shadow-lg" style="">
+            <form action="{{ route('addcontaineruser')}}" method="post" enctype="multipart/form-data">
             @csrf
-        <div class="">
-            <div class="card-header">
-                <h5>Thêm tài liệu</h5>
-            </div>
-            <div class="card-content">
-            <div class="form-row">
-                <div class="form-group col-md-12">
-                    <label>Ngày</label>
-                  <input type="date" name="" disabled value="{{$dateNow}}" class="form-control" required value="" id="">
-                </div>                   
-            </div>
-            <div class="form-row">
-                <div class="form-group col-md-12">
-                    <label>Tài liệu</label>
-                    <input type="file" class="form-control" name="tailieu" required>
+                <div class="card-header mt-2">
+                    <h5>Thêm tài liệu</h5>
                 </div>
-            </div>  
-            <div class="form-row">  
-                <div class="col-xl-12 form-group col-xxl-12" required>
-                <div class="card-body">
-                    <label>Mô tả</label>
-                    <textarea  class="summernote" name="mota"></textarea>
+                <div class="card-content">
+                    <div class="form-row">
+                        <div class="form-group col-md-12">
+                            <label>Ngày</label>
+                        <input type="date" name="" disabled value="{{$dateNow}}" class="form-control" required value="" id="">
+                        </div>                   
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-12">
+                            <label>Tài liệu</label>
+                            <input type="file" class="form-control" name="tailieu" required>
+                        </div>
+                    </div>  
+                    <div class="form-row">  
+                        <div class="col-xl-12 form-group col-xxl-12" required>
+                        <div class="card-body">
+                            <label>Mô tả</label>
+                            <textarea  class="summernote" name="mota"></textarea>
+                        </div>
+                        </div>
+                    </div>
+                    <div class="row justify-content-center mb-4">
+                        <button type="submit" style=" width:150px;height:50px;font-size: 20px;" class="btn  btn-primary">Tài liệu</button>            
+                    </div>
                 </div>
-                </div>
-            </div>
-          <div class="row justify-content-center mb-4">
-            <button type="submit" style=" width:150px;height:50px;font-size: 20px;" class="btn  btn-primary">Tài liệu</button>            
-          </div>
+            </form>
         </div>
-    </div>
-    </div>
-</form>
     <div class="col mt-3 " style="">
         <h5>Danh sách tài liệu </h5>
         <div class="card shadow-lg">
-            <div class="card-content">                
-                <ul>
-                    @foreach ($containDocs as $containDoc)
-                    <li class="ml-2 mt-1 mr-2">
-                       <div class="row">
-                            <div class="col-lg-3" style="display: flex">
-                                <div class="col-lg-4">
-                                    @if ($containDoc->nhanvien->HinhAnh == '')
-                                    @if ($containDoc->nhanvien ->GioiTinh == 'Nam')
-                                        <img src="{{ asset('./images/man.jpg')}}"  style="width:50px;height:50px;border-radius: 50%;" alt="">
-                                    @else
-                                        <img src="{{ asset('./images/woman.jpg')}}" style="width:50px;height:50px;border-radius: 50%;" alt="">
-                                    @endif
-                                  @else
-                                      <img src="{{ asset('./images/' . $containDoc->nhanvien->HinhAnh) }}"  style="width:50px;height:50px;border-radius: 50%;" alt="">
-                                  @endif
+                <div class="card-content">                
+                    <ul>
+                        @foreach ($containDocs as $containDoc)
+                        <li class="ml-2 mt-1 mr-2">
+                           <div class="row">
+                                <div class="col-lg-3" style="display: flex">
+                                    <div class="col-lg-4">
+                                        @if ($containDoc->nhanvien->HinhAnh == '')
+                                        @if ($containDoc->nhanvien ->GioiTinh == 'Nam')
+                                            <img src="{{ asset('./images/man.jpg')}}"  style="width:50px;height:50px;border-radius: 50%;" alt="">
+                                        @else
+                                            <img src="{{ asset('./images/woman.jpg')}}" style="width:50px;height:50px;border-radius: 50%;" alt="">
+                                        @endif
+                                      @else
+                                          <img src="{{ asset('./images/' . $containDoc->nhanvien->HinhAnh) }}"  style="width:50px;height:50px;border-radius: 50%;" alt="">
+                                      @endif
+                                    </div>
+                                   <div class="col-lg-9">
+                                        <p class="mt-2">
+                                            {{$containDoc->nhanvien->Ho.' '.$containDoc->nhanvien->Ten}}
+                                        </p>
+                                        <p style="font-size:12px;">
+                                            {{$containDoc->nhanvien->phongban->TenPhongBan}}
+                                        </p>
+                                   </div>
+                                   
                                 </div>
-                               <div class="col-lg-9">
-                                    <p class="mt-2">
-                                        {{$containDoc->nhanvien->Ho.' '.$containDoc->nhanvien->Ten}}
-                                    </p>
-                                    <p style="font-size:12px;">
-                                        {{$containDoc->nhanvien->phongban->TenPhongBan}}
-                                    </p>
-                               </div>
-                               
-                            </div>
-                            <div class="col-lg-2 mt-2">
-                                @switch(pathinfo($containDoc->TaiLieu, PATHINFO_EXTENSION))
-                                @case('docx')
-                                    <img src="{{asset('./icons/word.png')}}" alt="word" style="height: 15px;width: 15px;">
-                                    @break
-                                @case('xlsx')
-                                    <img src="{{asset('./icons/excel.png')}}" alt="word" style="height: 15px;width: 15px;">
-                                    @break
-                                @default
-                                    <img src="{{asset('./icons/file.png')}}" alt="word" style="height: 15px;width: 15px;">
-                                    @break
-                            @endswitch
-                            <a target='_blank' style="color: black;" href='{{ asset('./documents/'.$containDoc->TaiLieu)}}'>  {{$containDoc->TaiLieu}}</a>
-                                {{-- <p>{{$containDoc->TaiLieu}}</p> --}}
-                            </div>
-                            <div class="col-lg-5 mt-2">
-                                {!! $containDoc->MoTa !!}
-                            </div>
-                            <div class="col-lg-2 mt-2">
-                                <?php
-                                    \Carbon\Carbon::setLocale('vi'); 
-                                    $timeNow=\Carbon\Carbon::parse($containDoc ->ThoiGian)->diffForHumans(\Carbon\Carbon::now());
-                                ?>
-                                {{$timeNow}}
-                                {{-- <p>{{\Carbon\Carbon::parse($containDoc->ThoiGian)->format('d/m/Y H:m:s')}}</p> --}}
-                            </div>
-                       </div>
-                    </li>
-                    @endforeach
-                </ul>
-                {{-- Pagination --}}
-                <div class="d-flex justify-content-center">
-                    <nav>
-                        <ul class="pagination pagination-circle">
-                            <li class="page-item ">{{ $containDocs->links() }}</li>
-                        </ul>
-                    </nav>
+                                <div class="col-lg-2 mt-2">
+                                    @switch(pathinfo($containDoc->TaiLieu, PATHINFO_EXTENSION))
+                                    @case('docx')
+                                        <img src="{{asset('./icons/word.png')}}" alt="word" style="height: 15px;width: 15px;">
+                                        @break
+                                    @case('xlsx')
+                                        <img src="{{asset('./icons/excel.png')}}" alt="word" style="height: 15px;width: 15px;">
+                                        @break
+                                    @default
+                                        <img src="{{asset('./icons/file.png')}}" alt="word" style="height: 15px;width: 15px;">
+                                        @break
+                                @endswitch
+                                <a target='_blank' style="color: black;" href='{{ asset('./documents/'.$containDoc->TaiLieu)}}'>  {{$containDoc->TaiLieu}}</a>
+                                    {{-- <p>{{$containDoc->TaiLieu}}</p> --}}
+                                </div>
+                                <div class="col-lg-5 mt-2">
+                                    {!! $containDoc->MoTa !!}
+                                </div>
+                                <div class="col-lg-2 mt-2">
+                                    <?php
+                                        \Carbon\Carbon::setLocale('vi'); 
+                                        $timeNow=\Carbon\Carbon::parse($containDoc ->ThoiGian)->diffForHumans(\Carbon\Carbon::now());
+                                    ?>
+                                    {{$timeNow}}
+                                    {{-- <p>{{\Carbon\Carbon::parse($containDoc->ThoiGian)->format('d/m/Y H:m:s')}}</p> --}}
+                                </div>
+                           </div>
+                        </li>
+                        @endforeach
+                    </ul>
+                    {{-- Pagination --}}
+                    <div class="d-flex justify-content-center">
+                        <nav>
+                            <ul class="pagination pagination-circle">
+                                <li class="page-item ">{{ $containDocs->links() }}</li>
+                            </ul>
+                        </nav>
+                    </div>
                 </div>
             </div>
         </div>

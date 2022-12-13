@@ -16,9 +16,11 @@ class ContaindocController extends Controller
     public function index()
     {
         $dateNow=\Carbon\Carbon::parse(Carbon::now())->format('Y-m-d');
-        $containDocs=tailieu::with('nhanvien')->paginate(5);
+        $containDocs=tailieu::with('nhanvien')
+                                ->orderBy('ThoiGian','DESC')
+                                ->paginate(5);
         $containDocShareds=tailieu::where('Id_NhanVien','=',session()->get('user_id'))
-                            ->orderBy('Id_TaiLieu', 'DESC')
+                            ->orderBy('ThoiGian','DESC')
                             ->with('nhanvien')
                             ->get();
                             // dd($containDocShareds);

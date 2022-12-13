@@ -21,29 +21,6 @@ class SalaryCotroller extends Controller
 {
     public function index()
     {
-    //    echo $dateNow = Carbon\Carbon::parse(Carbon::now())->format('Y-m-d');
-    //    echo $firstOfMonth = Carbon::now()->firstOfMonth()->format("Y-m-d");
-    // //    echo $dateNowtest=new Carbon('2022-05-03')->format("Y-m-d");
-    //    echo $dateNowtest=Carbon::parse( new Carbon('2022-05-03'))->format('Y-m-d');
-    //    if($dateNow == $firstOfMonth)
-    //      {
-    //        echo 'true'; 
-    //     }
-    //    else
-    //     {
-    //         if($dateNow == $dateNowtest)
-    //         {
-    //         echo 'true';    
-    //         }
-    //         else
-    //         {
-    //             echo 'false';
-    //         }
-    //     }
-    // $levelOfEmployees=luong::where('Id_NhanVien','=','16')
-    //                     ->with('bacluong')
-    //                     ->get();
-        // echo   $levelOfEmployees[0]['bacluong']['TenBac'];
         $now = Carbon::now();
         // $employees=nhanvien::all();
         $firstOfMonth = $now->firstOfMonth()->format("Y-m-d");
@@ -51,11 +28,6 @@ class SalaryCotroller extends Controller
         $YearNow=Carbon::parse($now)->format('Y');
         $monthNow=Carbon::parse($now)->format('m');
         $levelOfEmployees=bac::with('ngach')->get();
-        // $ngachOfEmployees=ngach::all();
-        // $salarys=luong::with('nhanvien')
-        //                 ->with('bacluong')
-                       
-        //                 ->get();
         return view('admin.salary.index',compact('levelOfEmployees','monthNow','YearNow','firstOfMonth','endOfMonth'));
     }
     public function detail($id)
@@ -72,8 +44,6 @@ class SalaryCotroller extends Controller
                         ->with('bacluong')
                         ->get();
         $departments=chucvu::all();
-        // echo ($salaryDetail[0]->Id_Bac);
-        // echo $levelSalaryOfEmployees[0]->Id;
         return view('admin.salary.detail',compact('departments','salaryDetail','salaryOfEmployees','levelSalaryOfEmployees'));
     }
     public function update($id,request $request)
@@ -251,7 +221,7 @@ class SalaryCotroller extends Controller
     }
     public function  destroyngach($id)
     {
-        $destroyngach=ngach::findOrFail($id);
+        $destroyngach=ngach::where('Id','=',$id);
         if($destroyngach->delete())
         {
             return back()->with('success','Xóa ngạch thành công');

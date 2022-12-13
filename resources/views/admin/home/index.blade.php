@@ -123,11 +123,8 @@
                 </a>
             {{-- </div> --}}
         </div>
-        <div class="p-2 m-2">
-            {{-- <div class="card"> --}}
-                <!-- <h1>test</h1> -->
-                <a href="{{ route('exportlistemployee') }}" style="height: 120px; width: 250px;" class=" shadow-lg btn btn-success">
-                    <!-- <form method="POST" action="xuatfiledanhsachNV.php"> -->
+        {{-- <div class="p-2 m-2">
+                <a href="{{ route('exportlistemployee') }}" style="height: 120px; width: 250px;" class=" shadow-lg btn btn-success">      <!-- <form method="POST" action="xuatfiledanhsachNV.php"> -->
                     <div style="display: flex;">
                                 <div>
                                     <p style=" font-size:20px"> </p>
@@ -137,38 +134,28 @@
                                 </div>
                                 <div style="margin-top: 20px;">
                                     <i class="mdi mdi-file-excel fa-3x" style="margin-left: 80px;"></i>
-                                    {{-- <img src="{{asset('./Images/excel.png')}}" style="margin-left: 80px;" alt="">   --}}
-                                </div>
-                                <!-- <input type="submit" name="export" class="btn btn-success" value="Xuất danh sách" /> -->
+                                </div>  
                         </div>
                         <div>
                                 <p style="margin-top: -30px;">Danh sách nhân viên</p>
                         </div>
-                    <!-- </form>  -->
                     </a> 
-            {{-- </div> --}}
         </div>
         <div class="p-2 m-2">
-            {{-- <div class=""> --}}
                 <a href="{{ route('exportsalary')}}" style="height: 120px; width: 250px;" class=" shadow-lg btn btn-success">
                     <div style="display: flex;">
-                            <div>
-                                {{-- <p style=" font-size:20px"> Excel</p> --}}
-                            </div>
                             <div  style="margin-top: 40px;margin-bottom: 20px;">
                                 <p style=" font-size:20px">Excel </p>
                             </div>
                             <div style="margin-top: 20px;">
                                 <i class="mdi mdi-file-excel fa-3x" style="margin-left: 80px;"></i>
-                                {{-- <img src="{{asset('./Images/salary.png')}}"  alt="">   --}}
                             </div>
                     </div>
                     <div>
                             <p style="margin-top: -30px;">Danh sách lương nhân viên</p>
                     </div>  
                 </a>    
-            {{-- </div> --}}
-        </div>
+        </div> --}}
         <div class="p-2 m-2">
             <a href="" data-toggle="modal" data-target="#work" style="height: 120px; width: 250px;" class=" shadow-lg btn  btn-info">
                 <div style="display: flex;">

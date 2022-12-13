@@ -103,52 +103,6 @@
                             </div>
                         </div>
                     </div>
-                    {{-- <div class="form-row mt-2 ml-2" style="display: flex">
-                        <label class="my-auto mr-3"> Nhân viên :</label>
-                        @foreach ($employyeeOfDerpantments as $employyeeOfDerpantment)                    
-                            @if ($employyeeOfDerpantment->HinhAnh == '')
-                                    @if ($employyeeOfDerpantment ->GioiTinh == 'Nam')
-                                    <img class="ml-5" src="{{ asset('./images/man.jpg')}}"  style="width:50px;height:50px;border-radius: 50%;" alt="">
-                            @else
-                                <img class="ml-5" src="{{ asset('./images/woman.jpg')}}" style="width:50px;height:50px;border-radius: 50%;" alt="">
-                            @endif
-                            @else
-                                <img class="ml-5" src="{{ asset('./images/' . $employyeeOfDerpantment->HinhAnh) }}"  style="width:50px;height:50px;border-radius: 50%;" alt="">
-                            @endif
-                            <p class="ml-3 mt-2">
-                                <?php 
-                                echo $employyeeOfDerpantment->Ho.' '.$employyeeOfDerpantment->Ten;
-                            ?>
-                            </p>    
-                        @endforeach
-                    </div>
-                    <div class="d-flex flex-column w-auto mt-3">
-                        <div class="d-flex text-left mb-2 align-items-center">
-                            <div class="w-25 pl-2 mr-2">
-                                <label class="my-auto">Báo cáo</label><b class="text-danger"> * </b>:
-                            </div>
-                            <div class="w-75">
-                                <select name="loaiyeucau" id="remain-open"class="form-control"required>
-                                    <option value="">Loại yêu cầu</option>
-                                    @foreach ($typeOfRequests as $typeOfRequest)
-                                        <option value="{{$typeOfRequest->Id_LoaiYeuCau}}">{{$typeOfRequest->TenLoaiYeuCau}}</option>
-                                    @endforeach
-                                </select>
-                            </div>
-                            <div class="w-20 pl-2 mr-2">
-                                <label class="my-auto ml-5">Ngày :</label>
-                            </div>
-                            <div class="w-70">
-                                <input type="date" name="" disabled value="{{$dateNow}}" class="form-control" required value="" id="">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-12 form-group col-xxl-12" required>
-                        <div class="card-body">
-                            <label>Mô tả</label>
-                            <textarea  class="summernote" name="mota"></textarea>
-                        </div>
-                    </div> --}}
                     <div class="row justify-content-center mb-4">
                         <button type="submit" style=" width:150px;height:50px;font-size: 20px;" class="btn  btn-primary">Đánh giá</button>            
                     </div>
@@ -203,6 +157,7 @@
                         <?php
                              $evaluations=App\Models\danhgia::where('NhanVien','=',$employyeeOfDerpantment->Id_NhanVien)
                                                 ->with('nhanvien')
+                                                ->orderBy('Ngay', 'DESC')
                                                 ->get();
                             $stt= 0;
                         ?>

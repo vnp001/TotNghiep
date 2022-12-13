@@ -20,7 +20,7 @@ class tailieuController extends Controller
         $phongban=phongban::all();
         $admin=nhanvien::where('Id_NhanVien','=',session()->get('admin_id'))->get();
         $tailieu=tailieu::with('nhanvien')
-                        ->orderBy('ThoiGian','ASC')
+                        ->orderBy('ThoiGian','DESC')
                         ->get();
         foreach($tailieu as $tl)
         {

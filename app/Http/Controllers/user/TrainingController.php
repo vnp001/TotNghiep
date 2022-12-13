@@ -14,6 +14,7 @@ class TrainingController extends Controller
     {
         $resuftTrains=ketquadaotao::where('Id_NhanVien','=',session()->get('user_id'))
                             ->with('daotao')
+                            ->orderBy('Id_KetQuaDT', 'DESC')
                             ->get();
         $trains=daotao::where('TinhTrang','=','1')
                         ->with('loaidaotao')

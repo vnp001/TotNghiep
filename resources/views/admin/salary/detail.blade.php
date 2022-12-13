@@ -190,7 +190,7 @@
                                     @foreach ($lautory as $stt => $lautoryEmployee)
                                         <tr>
                                             <td class="text-center">{{++$stt}}</td>
-                                            <td class="text-center">{{$lautoryEmployee->Ngay}}</td>
+                                            <td class="text-center">{{\Carbon\Carbon::parse($lautoryEmployee->Ngay)->format('d-m-Y')}}</td>
                                             <td>
                                                 <?php 
                                                 $string = preg_replace("/&nbsp;/",'',$lautoryEmployee->MoTa);
@@ -230,7 +230,7 @@
                                     @foreach ($discipLine as $stt=> $discipLineEmployee)
                                         <tr>
                                             <td class="text-center">{{++$stt}}</td>
-                                            <td class="text-center">{{$discipLineEmployee->Ngay}}</td>
+                                            <td class="text-center">{{\Carbon\Carbon::parse($discipLineEmployee->Ngay)->format('d-m-Y')}}</td>
                                             <td>
                                                 <?php 
                                                 $string = preg_replace("/&nbsp;/",'',$discipLineEmployee->MoTa);
@@ -253,41 +253,6 @@
                     <div class="col">
                         Thống kê lương
                     </div>
-                    {{-- <div class="col">
-                        <select class="form-control" name="ngay" id="">
-                            <option value="">Tháng</option>
-                           
-                            $now = \Carbon\Carbon::now();
-                            $MonthNow =\Carbon\Carbon::parse($now)->format('m');
-                            $year=\Carbon\Carbon::parse($now)->format('Y');
-                  
-                                for ($i=1; $i <= 12; $i++) { 
-                                   
-                                    <option value=" echo $i">Tháng  echo $i</option>
-                                   
-                                }
-                           
-                        </select>
-                    </div>
-                    <div class="col">
-                        <select class="form-control" name="" id="">
-                            <option value="">Năm</option>
-                            
-                            for ($year = (int)date('Y'); 1900 <= $year; $year--)
-                            { 
-                              ?>
-                              <option value="echo $year">Năm  echo $year;</option>
-                             
-                           }
-                            ?>
-                        </select>
-                    </div> --}}
-                    {{-- <script type="text/javascript">
-                        $('#getDate').on('click',function(){
-                            var ngay= $('#ngay').val();
-                            alert(ngay);
-                        })
-                    </script> --}}
                 </div>
                 <div class="card-content">
                     <ul class="ml-4">
@@ -298,14 +263,6 @@
                                                     ->with('bacluong')
                                                     ->get();
                             ?>
-                        {{-- <select id="search" name="search">
-                            <option value="">0 </option>
-                            <option value="2022-04-09">1</option>
-                            <option value="2022-03-31">2</option>
-                            <option value="2022-04-19">3</option>
-                        </select> --}}
-                        {{-- <input type="date" class="form-controller" id="search" name="search"> --}}
-                        {{-- <input type="keyword" id="keyword" name="keyword" class="form-control"> --}}
                         <table class="form-group  table table-striped table-bordered" style="width: auto;" >
                             <thead class="text-center text-nowrap thead-light">
                               <tr>
@@ -330,9 +287,6 @@
                                 <td class="text-center">{{$salary->bacluong->TenBac}}</td>
                                 <td class="text-center">{{$salary->TongNgayLam}}</td>
                                 <td class="text-center">{{$salary->TongLuong}}</td>
-
-                                {{-- <td class="text-center">{{ $salary-> }}</td>
-                                <td class="text-center">{{ }}</td>           --}}
                             </tr>
                         @endforeach
                           </tbody>
