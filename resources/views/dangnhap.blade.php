@@ -20,7 +20,7 @@
                 <div class="rounded d-flex justify-content-center">
                     <div class="col-md-4 col-sm-12 shadow-lg p-5 bg-light" style="border-radius: 10px;">
                         <div class="text-center" style="margin-bottom: 70px;">
-                            <img src="{{ asset('/Images/cntt_ico_n.png') }}"  style="height: 150px;width: 150px;" alt="">
+                            <img src="{{ asset('/Images/Logo_HCMUP.png') }}"  style="height: 150px;width: 150px;" alt="">
                             <h3 class="text-primary" style="margin-top: 40px;">ĐĂNG NHẬP</h3>
                         </div>
                         <form action="{{route('login')}}" method="post">

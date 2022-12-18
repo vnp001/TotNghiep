@@ -121,7 +121,7 @@
                                 <p>{{\Carbon\Carbon::parse($train->NgayBatDau)->format('d/m/Y').' -> '.\Carbon\Carbon::parse($train->NgayBatDau)->format('d/m/Y')}}</p>
                             </td>
                             <td>
-                                {{$train->NoiDung}}
+                                {!!$train->NoiDung!!}
                             </td>
                             <td>
                                 {{$train->NoiDaoTao}}
@@ -210,7 +210,7 @@
                             <p>{{\Carbon\Carbon::parse($resuftTrain->daotao->NgayBatDau)->format('d/m/Y').' -> '.\Carbon\Carbon::parse($resuftTrain->daotao->NgayBatDau)->format('d/m/Y')}}</p>
                         </td>
                         <td>
-                            {{$resuftTrain->daotao->NoiDung}}
+                            {!!$resuftTrain->daotao->NoiDung!!}
                         </td>
                         <td>
                             {{$resuftTrain->daotao->NoiDaoTao}}

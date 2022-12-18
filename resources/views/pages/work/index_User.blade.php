@@ -216,8 +216,8 @@
                     <tbody>
                         <?php $sttcv=0 ?>
                         @foreach ($works as $work)                           
-                              @if ($work->TinhTrang == 1 && $work->Id_PhongBan == $employees[0]->Id_PhongBan)                                
-                                <tr>
+                        @if ($work->TinhTrang == 1 && $work->Id_PhongBan == $employees[0]->Id_PhongBan)                                
+                        <tr>
                                     <td class="text-center">
                                         {{++$sttcv}}
                                     </td>
